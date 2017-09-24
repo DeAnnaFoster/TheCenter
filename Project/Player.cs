@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace TheCenter.Project
@@ -12,7 +13,7 @@ namespace TheCenter.Project
         {
             Score = 0;
             Inventory = new List<Item>();
-            Inventory.Add((new Item("wristband", "wristband")));
+            //Inventory.Add((new Item("wristband", "wristband")));
         }
 
         public bool AddItem(Item item)
@@ -21,6 +22,10 @@ namespace TheCenter.Project
             {
                 Inventory.Add(item);
                 return true;
+            }
+            else
+            {
+                Console.WriteLine("You already have one of those in your Inventory");
             }
 
             return false;

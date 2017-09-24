@@ -16,75 +16,87 @@ namespace TheCenter
 
             while (GameContinue)
             {
-                //n, s, e, w,  t, u, i, d, h?
+
+
+
 
                 Console.Clear();
-                //Console.Beep();
+                //Console.Beep(); //Where the Beep is that!? ;)
                 Console.WriteLine("");
                 MyGame.ylw();
                 Console.WriteLine($"You are in the {MyGame.CurrentRoom.Name}");
                 MyGame.grn();
                 Console.WriteLine("");
-                //MyGame.processDesc(MyGame.CurrentRoom.Description);
+
+
+
+
+
+                //It would be here that I need to check for Special Operations Etc
                 MyGame.CurrentRoom.processDesc(MyGame.CurrentRoom.Description);
 
-                //Console.WriteLine($"{MyGame.processDesc(MyGame.CurrentRoom.Description)}");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
-                Console.WriteLine("");
-                Console.WriteLine("");
+
+
+
+
                 bool repeatQuestion = true;
 
                 while (repeatQuestion)
                 {
+                    MyGame.ylw();
                     Console.Write("What would you like to do?: ");
+                    MyGame.grn();
                     string action = Console.ReadLine().ToLower();
 
-                    // int index = action.IndexOf(" ");
-                    // string actualItem = action.Substring(index + 1);
-
-                    if (action.StartsWith("t ") || action.StartsWith("u ") || action.StartsWith("i ") || action.StartsWith("de") || action.StartsWith("dr") || action.StartsWith("h")) //dr is for drop
+                    if (action.StartsWith("t ") || action.StartsWith("u ") || action.StartsWith("i ") || action.StartsWith("d") || action.StartsWith("dr") || action.StartsWith("?")) //dr is for drop
                     {
+                        int index = action.IndexOf(" ");
+                        string actualItem = action.Substring(index + 1);
 
                         if (action.StartsWith("u "))
                         {
-                            // Console.WriteLine("such a user");
+                            // Console.WriteLine($"{MyGame.CurrentRoom.Locked}");
                             // Console.ReadLine();
-
-                            int index = action.IndexOf(" ");
-                            string actualItem = action.Substring(index + 1);
-
-                            // Console.WriteLine("");
-                            // Console.WriteLine($"You are using the '{actualItem}'");
-                            // Console.WriteLine("");
 
                             //works nicely as a trap
                             if (MyGame.CurrentRoom.Locked == true)
                             {
+
+
                                 //maybe add timer here
                                 MyGame.CurrentRoom.Locked = !MyGame.UseItem(actualItem);
                             }
+                            else
+                            {
+                                MyGame.UseItem(actualItem);
+
+                            }
+
 
                         }
                         else if (action.StartsWith("t "))
                         {
-                            int index = action.IndexOf(" ");
-
-                            // Console.WriteLine($"Index found was {index}");
-                            // Console.ReadLine();
-
-                            string actualItem = action.Substring(index + 1);
-
-                            // Console.WriteLine("");
-                            // Console.WriteLine($"You are taking the '{actualItem}'");
-                            // Console.WriteLine("");
-                            // Console.ReadLine();
                             MyGame.TakeItem(actualItem);
-
+                        }
+                        else if (action.StartsWith("i"))//inventory & score
+                        {
+                            //MyGame.ShowInventory();
+                        }
+                        else if (action.StartsWith("dr "))//drop
+                        {
+                            //MyGame.RemoveItem(actualItem);
+                        }
+                        else if (action.StartsWith("? "))//Show Description - ???????
+                        {
+                            MyGame.CurrentRoom.processDesc(MyGame.CurrentRoom.Description);
                         }
 
                         repeatQuestion = true;
                     }
-                    else if (action == "n" || action == "s" || action == "e" || action == "w")
+                    else if (action == "n" || action == "s" || action == "e" || action == "w" || action.StartsWith("dwn ") || action.StartsWith("up "))
                     {
                         // if(MyGame.CurrentRoom.Exits.ContainsKey(action))
                         // {

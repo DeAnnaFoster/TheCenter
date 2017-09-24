@@ -32,19 +32,15 @@ namespace TheCenter.Project
             }
 
         }
+
         public bool UseItem(Item item)
         {
-            //item.Description;
             Console.Clear();
-            // Console.WriteLine("");
             processDesc(item.Description);
-            //Console.WriteLine(item.Description);
             Console.WriteLine("");
 
             return true;
         }
-
-
 
         public void processDesc(string desc)
         {
@@ -64,7 +60,5 @@ namespace TheCenter.Project
                 Console.Write(ch);
             }
         }
-
-
     }
 }
