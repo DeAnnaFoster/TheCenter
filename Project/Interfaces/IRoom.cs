@@ -9,7 +9,7 @@ namespace TheCenter.Project
         string Description { get; set; }
         List<Item> Items { get; set; }
 
-        void UseItem(Item item);
+        bool UseItem(Item item);
 
     }
 }

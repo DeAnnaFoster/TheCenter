@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Media;
-using System.Timers;
-using TheCenter.Project;
+using System.Diagnostics;
 
 namespace TheCenter
 {
@@ -11,60 +9,123 @@ namespace TheCenter
         {
             Console.SetWindowSize(75, 50);
             Console.ForegroundColor = ConsoleColor.Green;
-
-            // Console.BackgroundColor = ConsoleColor.Black;
-            // Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-            // System.ConsoleColor blu = Console.ForegroundColor = ConsoleColor.Blue;
-            // System.ConsoleColor grn = Console.ForegroundColor = ConsoleColor.Green;
-            // System.ConsoleColor gry = Console.ForegroundColor = ConsoleColor.Gray;
-
             Project.Game MyGame = new Project.Game();
-            //System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-
-
-            // MyGame.processDesc("This is a (t)est \r\nof the \r\nemergency (b)roadcast system.");
-            // Console.ReadLine();
-
 
             bool GameContinue = true;
-            MyGame.Setup(); //or similar
+            MyGame.Setup();
 
             while (GameContinue)
             {
-                //n, e, w, t, u, i, d, h?
+                //n, s, e, w,  t, u, i, d, h?
 
                 Console.Clear();
-                Console.Beep();
+                //Console.Beep();
                 Console.WriteLine("");
+                MyGame.ylw();
                 Console.WriteLine($"You are in the {MyGame.CurrentRoom.Name}");
+                MyGame.grn();
                 Console.WriteLine("");
-                MyGame.processDesc(MyGame.CurrentRoom.Description);
+                //MyGame.processDesc(MyGame.CurrentRoom.Description);
+                MyGame.CurrentRoom.processDesc(MyGame.CurrentRoom.Description);
+
                 //Console.WriteLine($"{MyGame.processDesc(MyGame.CurrentRoom.Description)}");
 
                 Console.WriteLine("");
                 Console.WriteLine("");
-                Console.Write("What would you like to do?: ");
-                string action = Console.ReadLine().ToLower();
+                bool repeatQuestion = true;
 
-                if (action == "n" || action == "s" || action == "e" || action == "w")
+                while (repeatQuestion)
                 {
-                    MyGame.Go(action);
+                    Console.Write("What would you like to do?: ");
+                    string action = Console.ReadLine().ToLower();
+
+                    // int index = action.IndexOf(" ");
+                    // string actualItem = action.Substring(index + 1);
+
+                    if (action.StartsWith("t ") || action.StartsWith("u ") || action.StartsWith("i ") || action.StartsWith("de") || action.StartsWith("dr") || action.StartsWith("h")) //dr is for drop
+                    {
+
+                        if (action.StartsWith("u "))
+                        {
+                            // Console.WriteLine("such a user");
+                            // Console.ReadLine();
+
+                            int index = action.IndexOf(" ");
+                            string actualItem = action.Substring(index + 1);
+
+                            // Console.WriteLine("");
+                            // Console.WriteLine($"You are using the '{actualItem}'");
+                            // Console.WriteLine("");
+
+                            //works nicely as a trap
+                            if (MyGame.CurrentRoom.Locked == true)
+                            {
+                                //maybe add timer here
+                                MyGame.CurrentRoom.Locked = !MyGame.UseItem(actualItem);
+                            }
+
+                        }
+                        else if (action.StartsWith("t "))
+                        {
+                            int index = action.IndexOf(" ");
+
+                            // Console.WriteLine($"Index found was {index}");
+                            // Console.ReadLine();
+
+                            string actualItem = action.Substring(index + 1);
+
+                            // Console.WriteLine("");
+                            // Console.WriteLine($"You are taking the '{actualItem}'");
+                            // Console.WriteLine("");
+                            // Console.ReadLine();
+                            MyGame.TakeItem(actualItem);
+
+                        }
+
+                        repeatQuestion = true;
+                    }
+                    else if (action == "n" || action == "s" || action == "e" || action == "w")
+                    {
+                        // if(MyGame.CurrentRoom.Exits.ContainsKey(action))
+                        // {
+                        //     Console.WriteLine("Woohoo");
+                        // }
+                        // else
+                        // {
+                        //     Console.WriteLine("THat is not possible");
+                        // }
+
+                        // Console.WriteLine($"cURRENTroOM LOCKED ISs {MyGame.CurrentRoom.Locked}");
+                        // Console.WriteLine($"Action now for KeyCheck is {action}");
+                        // Console.WriteLine($"ContainsKey is{MyGame.CurrentRoom.Exits.ContainsKey(action)}");
+
+
+                        if (MyGame.CurrentRoom.Locked == false && MyGame.CurrentRoom.Exits.ContainsKey(action))
+                        {
+                            MyGame.Go(action);
+                            repeatQuestion = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                            Console.WriteLine("That is not possible right now.");
+                            Console.WriteLine("");
+                            repeatQuestion = true;
+
+                        }
+
+                    }
+                    else
+                    {
+                        repeatQuestion = true;
+                    }
                 }
+
 
                 //user input
                 //validate input
 
-
-                using (SoundPlayer player = new SoundPlayer("C:\\bass.wav"))
-                {
-                    // Use PlaySync to load and then play the sound.
-                    // ... The program will pause until the sound is complete.
-                    player.PlaySync();
-                }
-
             }
-
 
             //myGame.go
             MyGame.Play();
