@@ -38,7 +38,12 @@ namespace TheCenter.Project
 
         public bool UseItem(Item item)
         {
-            Console.Clear();
+            //Console.Clear();
+            if(item.Name == "mask")
+            {
+                Console.Clear();
+            }
+            Console.WriteLine("");
             processDesc(item.Description);
             Console.WriteLine("");
 

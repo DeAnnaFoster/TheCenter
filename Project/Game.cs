@@ -41,7 +41,7 @@ namespace TheCenter.Project
 
             // FacilitiesRoom.Items.Add(new Item("mtools", "Maintenance Tools description stuff"));
             // FacilitiesRoom.Items.Add(new Item("ttools", "Tech Tools description stuff"));
-            FacilitiesRoom.Items.Add(new Item("wristband", "You take the wristband out and swipe it across the pad. You hear a \r\ndigital voice say 'Confirmed' as the sound of mechanical interlocks \r\nshift, buzz and whirrrr.\r\n\r\nYou may now proceed (E)ast into the Med Lab or go (W)est into\r\nthe Central Room."));
+            FacilitiesRoom.Items.Add(new Item("wristband", "You take the wristband out and swipe it across the pad. You hear a \r\ndigital voice say 'Confirmed' as the sound of mechanical interlocks \r\nshift, buzz and whirrrr.\r\n\r\nYou may now proceed (E)ast into the MedLab or go (W)est into\r\nthe Central Room."));
 
             CentralRoom.Items.Add(new Item("flashlight", "flashlight"));
             CentralRoom.Items.Add(new Item("laptop", "laptop"));
@@ -53,11 +53,11 @@ namespace TheCenter.Project
 
             MedLabDoor.NeededItems.Add(new Item("wristband", "wristband")); //from FacilitiesRoom
 
-            MedLab.Items.Add(new Item("glov", "gloves"));
-            MedLab.Items.Add(new Item("steth", "stethoscope"));
-            MedLab.Items.Add(new Item("dep", "tongue depressors"));
-            MedLab.Items.Add(new Item("card", "card"));
-            MedLab.Items.Add(new Item("clip", "clip"));
+            MedLab.Items.Add(new Item("glov", ""));
+            MedLab.Items.Add(new Item("steth", ""));
+            MedLab.Items.Add(new Item("dep", ""));
+            MedLab.Items.Add(new Item("card", ""));
+            MedLab.Items.Add(new Item("clip", ""));
 
             //establish rooms. Room has dictionary called Exits.
             EntranceTunnel.Exits.Add("n", AirlockTreatment);
@@ -192,7 +192,7 @@ namespace TheCenter.Project
                     {
                         CurrentPlayer.IncreaseScore(CurrentRoom.Items[index].Name.Length);
                         CurrentRoom.UseItem(roomItem);
-
+                        Console.Clear();
                         Console.WriteLine("You've Won! This Level is COMPLETED.");
                         Console.WriteLine("Enjoy the ride down. The next level won't be so easy!");
                         Console.WriteLine("");
