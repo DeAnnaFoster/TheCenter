@@ -105,6 +105,8 @@ namespace TheCenter.Project
                 if (timeElapsed > 10)
                 {
                     Console.Clear();
+                    countdown.Countdown = 0;
+                    countdown = new Warning(4);
                     YouDied();
                 }
             }
