@@ -253,10 +253,10 @@ namespace TheCenter.Project
         {
             if (itemName == "booth")//hack for now. need to change booth to a room type
             {
-                Console.WriteLine("Seriously!? \r\nYou notice people looking at you funny. . . \r\n Like. . .  YOU LOST . . .and then. . . ");
+                Console.WriteLine("Seriously!? \r\nYou notice people looking at you funny. . . \r\nLike. . . YOU LOST . . .and then. . . ");
 
                 Console.WriteLine("");
-                Console.WriteLine("Press any key to continue...");
+                Console.WriteLine("Press Enter to continue...");
                 Console.ReadKey();
 
                 Restart();
@@ -466,7 +466,7 @@ namespace TheCenter.Project
         public void YouDied()
         {
             Console.Clear();
-            Console.WriteLine("The good news . . .\r\nyou don't have to worry about anything . . .EVER.\r\nThe bad news is . . . \r\n\r\nYOU DIED!\r\n\r\nPress any key...");
+            Console.WriteLine("The good news . . .\r\nyou don't have to worry about anything . . .EVER.\r\nThe bad news is . . . \r\n\r\nYOU DIED!\r\n\r\nPress Enter...");
             string res = Console.ReadLine();
             Console.Clear();
             Restart();
