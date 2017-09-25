@@ -27,21 +27,21 @@ namespace TheCenter.Project
 
             Room CentralRoom = new Room("Central Room", "You enter what appears to be the world’s largest living room. \r\nLots of seating. \r\n\r\nPeople dressed in various jumpsuits are seated leisurely all around \r\nyou in couches, individual seats, chairs and small booths that \r\nappear to be setup for mini-conferencing. These booths have a type of \r\nshade or partition that can be used to obscure the meeting. Not bad. \r\nYou decide to sit in a comfortable, high-walled but seemingly normal \r\nbooth. Something catches your attention . . .  was it a sound, \r\na (flashlight), a (laptop), or a motion at the fancy booths to the north. . .\r\n\r\nWhile you take a moment to focus on the distraction you notice activity \r\nin one of the fancy booths on the north wall. One of the two people in the booth draw the shade and you see a shift \r\nin the lighting in that (booth). Odd. \r\n\r\nYou pay no attention per se until not a minute later you see the shade \r\nin that very booth being retracted automatically, only to reveal . . .  \r\n\r\nan empty booth! \r\n\r\nA quick mental check - YEP! there were people in that booth just a few \r\nmoments ago until . . .\r\n\r\nthey drew the partition down! \r\n\r\nOK. Officially weird. \r\n\r\nAs you take a seat, you watch those booths and sure enough, people that \r\ngo into the booths and draw the partition down disappear. \r\n\r\nYou also notice people do not use the booths otherwise. \r\n\r\nYou see a hallway to the (E)ast and of course the door you originally \r\ncame through from the (S)outh.", true, new Item("", ""), false);
 
-            Room MedLabDoor = new Room("Central Room East Hallway", "You are at a frosted glass door, facing (E)ast, with the words “MedLab” \r\nin black etched into the glass. The door is locked but there is no \r\ndoorknob or keyhole. \r\n\r\nYou notice a very small pad on the wall on the side where you would \r\nexpect a doorknob.  Just then, a sliding wall extends behind you, \r\nblocking your ability to go back! \r\n\r\nYou're Trapped!\r\n", true, new Item("wristband", "wristband description here"), true);  //or continue (E)ast into the MedLab  //You can go back (W)est to the Central Room 
+            Room MedLabDoor = new Room("Central Room East Hallway", "You are at a frosted glass door, facing (E)ast, with the words “MedLab” \r\nin black etched into the glass. The door is locked but there is no \r\ndoorknob or keyhole. \r\n\r\nYou notice a very small pad on the wall on the side where you would \r\nexpect a doorknob.  Just then, a sliding wall extends behind you, \r\nblocking your ability to go back! \r\n\r\nYou're Trapped!\r\n", true, new Item("",""), true);  
 
             Room MedLab = new Room("MedLab", "You enter a well lit room obviously meant for medical needs. \r\nThere are cabinets and drawers, display cases and exam areas \r\nfor up to 4 patients. \r\n\r\nOne cabinet is marked with “Defibrillator” and you see other \r\npieces of equipment such as blood pressure bands, oxygen \r\nsystems with masks, (steth)oscopes, (clip)boards, resuscitation \r\nbag and mask, a small autoclave, a computer on a desk \r\nwith typical desk items around including an odd looking small \r\nplastic (card) next to the computer, a small water system \r\nwith small drink cups, refrigerator for medical use and the \r\nobligatory (glov)es, tongue (dep)ressors, sharps container etc. \r\n\r\nThere are no other exits other than the one you walked through \r\nfrom the (W)est.", false, new Item("", ""), false);
 
             AirlockTreatment.Items.Add(new Item("mask", "\r\nYou grab the closest canvas bag and pull the mask out…It’s a \r\ngas mask!!! You don the mask quickly, checking for a tight \r\nfit as you pull the straps to snug it up. The canisters are \r\nthankfully already in place and new . . . 15, 14, 13 the \r\ncountdown completes as you finish all of your checks. You \r\nthink . . . I hope these are the right filters just as you \r\nhear gas venting into the chamber. A cloud forms all around \r\nyou…but you’re breathing is fine albeit a bit labored from \r\nthe excitement. \r\n\r\nThe alarm ceases. Finally. \r\n\r\nThe gas has stopped and you hear another countdown start \r\nas the room seems to start clearing! 60 seconds. 59, 58 . . . \r\nA minute later the room is cleared. A voice gives you some \r\ninstructions to remove the mask and place it into the metal \r\nchute you see next to the north door. \r\n\r\nYou follow the instructions and head for the (N)orth door."));
 
-            FacilitiesRoom.Items.Add(new Item("blackjumpsuit", "black jumpsuits description stuff"));
-            FacilitiesRoom.Items.Add(new Item("whitejumpsuit", "white jumpsuits description stuff"));
-            FacilitiesRoom.Items.Add(new Item("greenjumpsuit", "green jumpsuits description stuff"));
-            FacilitiesRoom.Items.Add(new Item("bluejumpsuit", "blue jumpsuits description stuff"));
-            FacilitiesRoom.Items.Add(new Item("redjumpsuit", "red jumpsuits description stuff"));
+            FacilitiesRoom.Items.Add(new Item("blackjumpsuit", "Ah yes, the feel of the ultimate in synthetic material! Once you've had black. . . "));
+            FacilitiesRoom.Items.Add(new Item("whitejumpsuit", "Ah yes, the feel of the ultimate in synthetic material! I always looked great in white!"));
+            FacilitiesRoom.Items.Add(new Item("greenjumpsuit", "Ah yes, the feel of the ultimate in synthetic material!\r\nGreen with envy."));
+            FacilitiesRoom.Items.Add(new Item("bluejumpsuit", "Ah yes, the feel of the ultimate in synthetic material!\r\nA lovely shade really."));
+            FacilitiesRoom.Items.Add(new Item("redjumpsuit", "Ah yes, the feel of the ultimate in synthetic material!\r\nI'm dangerous in Red!"));
 
             // FacilitiesRoom.Items.Add(new Item("mtools", "Maintenance Tools description stuff"));
             // FacilitiesRoom.Items.Add(new Item("ttools", "Tech Tools description stuff"));
-            FacilitiesRoom.Items.Add(new Item("wristband", "wristband description stuff"));
+            FacilitiesRoom.Items.Add(new Item("wristband", "You take the wristband out and swipe it across the pad. You hear a \r\ndigital voice say 'Confirmed' as the sound of mechanical interlocks \r\nshift, buzz and whirrrr.\r\n\r\nYou may now proceed (E)ast into the Med Lab or go (W)est into\r\nthe Central Room."));
 
             CentralRoom.Items.Add(new Item("flashlight", "flashlight"));
             CentralRoom.Items.Add(new Item("laptop", "laptop"));
@@ -193,14 +193,13 @@ namespace TheCenter.Project
                         CurrentPlayer.IncreaseScore(CurrentRoom.Items[index].Name.Length);
                         CurrentRoom.UseItem(roomItem);
 
-
                         Console.WriteLine("You've Won! This Level is COMPLETED.");
                         Console.WriteLine("Enjoy the ride down. The next level won't be so easy!");
                         Console.WriteLine("");
 
                         Console.WriteLine("Want to Play again? Y/N");
                         string action = Console.ReadLine().ToLower();
-                        
+
                         if (action.Contains("y"))
                         {
                             Restart();
@@ -211,6 +210,10 @@ namespace TheCenter.Project
                             Quit();
                         }
                     }
+                }
+                else if (itemName == "wristband" && CurrentRoom.Name != "MedLabDoor")
+                {
+                    return false;
                 }
                 else
                 {
@@ -429,8 +432,6 @@ namespace TheCenter.Project
         {
             Console.WriteLine();
             Console.WriteLine("Every Room description has highlighted words and letters.\r\nEach signify an actionable item.\r\nSome items can be put in your inventory \r\nby using 't ' followed by the item name as highlighted.\r\nSome items can be used locally using 'u ' followed by the \r\nitem name as highlighted.\r\n\r\nKeywords available are: 'help' 'quit' 'restart' \r\n\r\nYou can also use '?' or 'd' to show the room description again. \r\n\r\nAlso available for use is 'i' which shows your inventory \r\nand current score. \r\n\r\nGood Luck!");
-            // Console.WriteLine("Press any key to continue");
-            // Console.ReadKey();
         }
 
         public void ShowInventory()
@@ -465,7 +466,7 @@ namespace TheCenter.Project
         public void YouDied()
         {
             Console.Clear();
-            Console.WriteLine("The good news . . .\r\nyou don't have to worry about anything . . .EVER.\r\nThe bad news is . . . \r\n\r\nYOU DIED!\r\n\r\n Press any key...");
+            Console.WriteLine("The good news . . .\r\nyou don't have to worry about anything . . .EVER.\r\nThe bad news is . . . \r\n\r\nYOU DIED!\r\n\r\nPress any key...");
             string res = Console.ReadLine();
             Console.Clear();
             Restart();
