@@ -10,7 +10,7 @@ namespace TheCenter.Project
         void Setup();
         void Reset();
 
-        //No need to Pass a room since Items can only be used in the CurrentRoom
+        //No need to 'Pass' a room since Items can only be used in the CurrentRoom
         bool UseItem(string itemName);
 
     }

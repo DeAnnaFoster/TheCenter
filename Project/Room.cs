@@ -17,10 +17,13 @@ namespace TheCenter.Project
 
         public Dictionary<string, Room> Exits = new Dictionary<string, Room>();
 
+        public List<string> usedItems { get; set; }
+
         public Room(string name, string description, bool special, Item specialitem, bool locked)
         {
             Items = new List<Item>();
             NeededItems = new List<Item>();
+            usedItems = new List<string>();
             Name = name;
             Description = description;
             Special = special;
