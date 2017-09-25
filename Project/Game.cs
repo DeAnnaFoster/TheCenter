@@ -16,6 +16,8 @@ namespace TheCenter.Project
 
         public Player CurrentPlayer { get; set; }
 
+        Process myproc = new Process();
+
         public void Setup()
         {
 
@@ -68,12 +70,9 @@ namespace TheCenter.Project
             MedLabDoor.Exits.Add("e", MedLab);
             MedLabDoor.Exits.Add("w", CentralRoom);
             MedLab.Exits.Add("w", CentralRoom);
-
-            Process myproc = new Process();
             myproc.StartInfo.FileName = @".\Project\Media\cmdmp3.exe";
-            myproc.StartInfo.Arguments = @".\Project\Media\Songbird.mp3";
-            //myproc.Start();
-
+            myproc.StartInfo.Arguments = @".\Project\Media\AWA.mp3";
+            myproc.Start();
             CurrentRoom = EntranceTunnel;
             CurrentPlayer = new Project.Player();
         }
@@ -91,11 +90,6 @@ namespace TheCenter.Project
 
                 CurrentRoom = CurrentRoom.Exits[direction];
             }
-        }
-
-        public void Reset()
-        {
-            //call Setup? 
         }
 
         public bool UseItem(string itemName)
@@ -459,6 +453,7 @@ namespace TheCenter.Project
 
         public void Quit()
         {
+            myproc.Kill();
             Console.Clear();
             Environment.Exit(0);
         }
@@ -474,6 +469,7 @@ namespace TheCenter.Project
 
         public void Restart()
         {
+            myproc.Kill();
             Console.Clear();
             //Console.WriteLine("Restarting");
             CurrentPlayer.Inventory.Clear();
@@ -513,11 +509,7 @@ namespace TheCenter.Project
             grn();
             Console.WriteLine("");
 
-
-
             //It would be here that I need to check for Special Operations Etc
-            //CurrentRoom.processDesc(description);
-
             Console.WriteLine("");
             Console.WriteLine("");
         }
